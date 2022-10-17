@@ -1,4 +1,4 @@
-package com.Escolar.Entity;
+package com.Escolar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
