@@ -4,37 +4,87 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
 
 
-@Getter
-@Setter
 @Entity
-@Table (name="Alumnos")
+@Table (name="tb_alumno")
 public class Alumnos {
 	
-	@Column(name="idAlumno")
-	private int codigo;
-	@Column(name="valorCodigo")
-	private int valorCod;
-	@Column(name="nombres")
-	private String nombres;
-	@Column(name="apellidos")
-	private String apellidos;
-	@Column(name="documentoIdentidad")
-	private String documento;
-	@Column(name="fechaNacimiento")
-	private Date fec_nacimiento;
-	@Column(name="idGenero")
-	private int genero;
-	@Column(name="ciudad")
+	@Column(name="idAlu")
+	private int cod_alumno;
+	@Column(name="alu_nombre")
+	private String nombre;
+	@Column(name="alu_apellidos")
+	private String apellido;
+	@Column(name="alu_documentoIdentidad")
+	private String dni;
+	@Column(name="alu_fechaNacimiento")
+	private Date fechaNacimiento;
+	
+	@ManyToOne
+	@JoinColumn(name="idGenero")
+	private Genero genero;
+	
+	@Column(name="alu_ciudad")
 	private String ciudad;
-	@Column(name="direcion")
+	@Column(name="alu_direccion")
 	private String direccion;
-	@Column(name="fechaRegistro")
-	private Date fec_registro;
+	
+	
+	public int getCod_alumno() {
+		return cod_alumno;
+	}
+	public void setCod_alumno(int cod_alumno) {
+		this.cod_alumno = cod_alumno;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public String getDni() {
+		return dni;
+	}
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	public Genero getGenero() {
+		return genero;
+	}
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+	public String getCiudad() {
+		return ciudad;
+	}
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	
+	
+	
 	
 }
