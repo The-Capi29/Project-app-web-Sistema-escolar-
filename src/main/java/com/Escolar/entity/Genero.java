@@ -19,7 +19,7 @@ public class Genero {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idGenero")
+	@Column(name="cod_genero")
 	private Integer cod_genero;
 	@Column(name="genero")
 	private String descripcion;
@@ -27,7 +27,42 @@ public class Genero {
 	@JsonIgnore
 	@OneToMany(mappedBy = "genero")
 	public List<Alumnos> listaAlumno;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "genero")
 	public List<Docentes> listaDocente;
+
+	public Integer getCod_genero() {
+		return cod_genero;
+	}
+
+	public void setCod_genero(Integer cod_genero) {
+		this.cod_genero = cod_genero;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public List<Alumnos> getListaAlumno() {
+		return listaAlumno;
+	}
+
+	public void setListaAlumno(List<Alumnos> listaAlumno) {
+		this.listaAlumno = listaAlumno;
+	}
+
+	public List<Docentes> getListaDocente() {
+		return listaDocente;
+	}
+
+	public void setListaDocente(List<Docentes> listaDocente) {
+		this.listaDocente = listaDocente;
+	}
 
 	
 	
