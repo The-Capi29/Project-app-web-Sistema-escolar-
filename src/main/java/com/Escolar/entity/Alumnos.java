@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -14,25 +17,30 @@ import javax.persistence.Table;
 @Table (name="tb_alumno")
 public class Alumnos {
 	
-	@Column(name="idAlu")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="cod_alumno")
 	private int cod_alumno;
 	@Column(name="alu_nombre")
 	private String nombre;
 	@Column(name="alu_apellidos")
 	private String apellido;
-	@Column(name="alu_documentoIdentidad")
+	@Column(name="alu_dni")
 	private String dni;
-	@Column(name="alu_fechaNacimiento")
+	@Column(name="alu_fecha_nacimiento")
 	private Date fechaNacimiento;
 	
 	@ManyToOne
-	@JoinColumn(name="idGenero")
+	@JoinColumn(name="cod_genero")
 	private Genero genero;
 	
 	@Column(name="alu_ciudad")
 	private String ciudad;
 	@Column(name="alu_direccion")
 	private String direccion;
+	
+	
+	
 	
 	
 	public int getCod_alumno() {
